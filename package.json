@@ -1,0 +1,23 @@
+{
+  "name": "node-eslutils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc -p .",
+    "payout": "node dist/cli/payout.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "modesl": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.21",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.3.3"
+  }
+}
