@@ -137,6 +137,9 @@ class EslConnection {
             this.conn.on('esl::end', rej);
         }) as Promise<IEslEvent>;
     }
+    disconnect(){
+        this.conn.disconnect();
+    }
 }
 
 export class EslConnectionFromFs extends EslConnection {
@@ -213,5 +216,21 @@ export class EslCall extends EslConnectionFromFs {
             `${min} ${max} ${tries} ${timeout} ${terminators} ${file} ` +
             ` ${invalid_file} esl_last_input ${regexp || ''} ${digit_timeout || ''} ${transfer_on_failure || ''}`);
         return new EslPGDResult(r);
+    }
+}
+
+export class EslCallEx extends EslCall{
+    hangedUp = false;
+    constructor(conn: any) {
+        super(conn);
+        conn.on('esl::event::CHANNEL_HANGUP::**',()=>{
+            this.hangedUp = true;
+        })
+    }
+    execute(app: string, args?: string){
+        if(this.hangedUp){
+            throw 'AlreadyHanggedUp';
+        }
+        return super.execute(app,args);
     }
 }
