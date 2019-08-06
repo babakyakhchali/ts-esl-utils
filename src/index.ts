@@ -83,10 +83,10 @@ class EslConnection {
     constructor(protected conn: any) {
     }
     async api(command: string, args?: string){
-        return this._promisify(this.conn.api,command,args);
+        return this._promisify(false,this.conn.api,command,args);
     }
     async bgapi(command: string, args?: string){
-        return this._promisify(this.conn.bgapi,command,args);
+        return this._promisify(false,this.conn.bgapi,command,args);
     }
     // async api(command: string, args?: string, bg?: boolean): Promise<ICmdResult> { //todo it is fucked on error
     //     args = args || '';
@@ -110,7 +110,7 @@ class EslConnection {
         return this.conn.getInfo() as IEslEvent;
     }
     subscribe(events:string){
-        return this._promisify(this.conn.subscribe,events);        
+        return this._promisify(false,this.conn.subscribe,events);        
     }
     addEventHandler(eventName:string,callBack:EslEventCallBack){
         this.conn.on(eventName,callBack);
@@ -119,22 +119,34 @@ class EslConnection {
         this.conn.off(callBack);
     }
     linger(){
-        return this._promisify(this.conn.sendRecv,'linger') as Promise<IEslEvent>;        
+        return this._promisify(false,this.conn.sendRecv,'linger') as Promise<IEslEvent>;        
     }
-    protected _promisify(ff:(...args:any[])=>void,...others:any[]){
+    protected _promisify(hangupAware:boolean,ff:(...args:any[])=>void,...others:any[]){
         others = others||[];
         const self = this;
         return new Promise((res,rej)=>{            
             const cb = function(r:any){
-                self.conn.off('error', rej);
-                self.conn.off('esl::end', rej);
+                self.conn.off('error', rejcb);
+                self.conn.off('esl::end', rejcb);
                 res(r);
             }
+            const rejcb = function(e:any){
+                self.conn.off('error', rejcb);
+                self.conn.off('esl::end', rejcb);
+                if(hangupAware){
+                    self.conn.off('esl::event::CHANNEL_HANGUP::**',rejcb);
+                }
+                rej(e);
+            }
             cb.bind(this);
+            rejcb.bind(this);
             others.push(cb);
             ff.apply(this.conn,others)            
-            this.conn.on('error', rej);
-            this.conn.on('esl::end', rej);
+            this.conn.on('error', rejcb);
+            this.conn.on('esl::end', rejcb);
+            if(hangupAware){
+                this.conn.on('esl::event::CHANNEL_HANGUP::**',rejcb);
+            }
         }) as Promise<IEslEvent>;
     }
     disconnect(){
@@ -144,7 +156,7 @@ class EslConnection {
 
 export class EslConnectionFromFs extends EslConnection {
     execute(app: string, args?: string) {
-        return this._promisify(this.conn.execute,app,args);        
+        return this._promisify(true,this.conn.execute,app,args);        
     }
     async executeEx(app: string, args?: string){
         return new EslEventEx(await this.execute(app,args));
