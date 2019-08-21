@@ -223,10 +223,10 @@ export class EslCall extends EslConnectionFromFs {
     }
     async playAndGetDigits(min: string | number, max: string | number, tries: string | number,
         timeout: string | number, terminators: string, file: string,
-        invalid_file: string, regexp?: string, digit_timeout?: string | number, transfer_on_failure?: string) {
+        invalid_file?: string, regexp?: string, digit_timeout?: string | number, transfer_on_failure?: string) {
         let r = await this.execute('play_and_get_digits',
             `${min} ${max} ${tries} ${timeout} ${terminators} ${file} ` +
-            ` ${invalid_file} esl_last_input ${regexp || ''} ${digit_timeout || ''} ${transfer_on_failure || ''}`);
+            ` ${invalid_file || "''"} esl_last_input ${regexp || ''} ${digit_timeout || ''} ${transfer_on_failure || ''}`);
         return new EslPGDResult(r);
     }
 }
