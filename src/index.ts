@@ -80,7 +80,9 @@ export class EslServer {
 export type EslEventCallBack = (e:IEslEvent)=>void;
 
 class EslConnection {
-    constructor(protected conn: any) {
+    public conn:any;
+    constructor(conn: any) {
+        this.conn = conn;
     }
     async api(command: string, args?: string){
         return this._promisify(false,this.conn.api,command,args);
@@ -118,8 +120,12 @@ class EslConnection {
     removeEventHandler(callBack:EslEventCallBack){
         this.conn.off(callBack);
     }
-    linger(){
-        return this._promisify(false,this.conn.sendRecv,'linger') as Promise<IEslEvent>;        
+    /**
+     * 
+     * @param timeout seconds to wait for linger
+     */
+    linger(timeout?:number){
+        return this._promisify(false,this.conn.sendRecv,timeout?'linger '+timeout:'linger') as Promise<IEslEvent>;        
     }
     protected _promisify(hangupAware:boolean,ff:(...args:any[])=>void,...others:any[]){
         others = others||[];
