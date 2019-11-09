@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "modesl": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^10.12.21",
+    "@types/dotenv": "^8.2.0",
     "rimraf": "^2.6.3",
     "typescript": "^3.3.3"
   }
