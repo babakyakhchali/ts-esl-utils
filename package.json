@@ -6,8 +6,7 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx rimraf dist/* && npx tsc -p .",
-    "prepare": "npm run build"
+    "build": "npx rimraf dist/* && npx tsc -p ."    
   },
   "keywords": [],
   "author": "",
