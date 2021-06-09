@@ -156,7 +156,7 @@ class EslConnectionToFs extends EslConnection {
                 clearTimeout(st);
             });
             this.conn.on('error', rej);
-            this.conn.on('esl::end', rej);
+            this.conn.on('esl::end', function () { rej('EslEndOrAuthError'); });
             const st = setTimeout(() => {
                 if (this.conn.socket) {
                     this.conn.socket.destroy('timeout');

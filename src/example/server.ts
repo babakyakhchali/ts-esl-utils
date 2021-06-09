@@ -1,18 +1,47 @@
 import { EslCallEx, EslServer, IEslEvent } from '../index';
 
-
-async function onConnection(conn: any) {
+export async function cc(conn: any) {
     const call = new EslCallEx(conn);
-    try {        
-        let r = await call.linger();
+    try {
+        
+        let r = await call.linger(4);
         await call.subscribe('all');
-        let cc=0;
+        let cc = 0;
         conn.on('esl::event::**', (e: IEslEvent) => {
             let name = e.getHeader('Event-Name');
-            if(name == null){
+            let sub = e.getHeader('Event-Subclass');
+            if (sub) {
+                name = name + '::' + sub;
+            }
+            if (name == null) {
+                name = e.serialize('json');
+            }
+            console.log(cc++, name);
+        })
+        call.executeEx('callcenter', 'rk-queue');
+        return r;
+    } catch (error) {
+        console.log(error);
+    }finally{
+        setTimeout(() => {
+            call.disconnect();    
+        }, 3000);        
+    }
+
+}
+
+export async function onConnection(conn: any) {
+    const call = new EslCallEx(conn);
+    try {
+        let r = await call.linger(3);
+        await call.subscribe('all');
+        let cc = 0;
+        conn.on('esl::event::**', (e: IEslEvent) => {
+            let name = e.getHeader('Event-Name');
+            if (name == null) {
                 console.log('shit');
             }
-            console.log(cc++,name);
+            console.log(cc++, name);
         })
         r = await call.answer();
         await call.setVariable('tts_engine', 'flite');
@@ -31,7 +60,7 @@ async function onConnection(conn: any) {
         return r;
     } catch (error) {
         console.log(error);
-    }finally{
+    } finally {
         call.disconnect();
     }
 
@@ -40,7 +69,7 @@ async function onConnection(conn: any) {
 const server = new EslServer({
     port: 8040,
     host: '0.0.0.0',
-    onConnection: onConnection,
+    onConnection: cc,
     onError: (e) => {
         console.log(e)
     },

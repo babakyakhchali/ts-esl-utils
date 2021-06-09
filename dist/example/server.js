@@ -1,10 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("../index");
+async function cc(conn) {
+    const call = new index_1.EslCallEx(conn);
+    try {
+        let r = await call.linger(4);
+        await call.subscribe('all');
+        let cc = 0;
+        conn.on('esl::event::**', (e) => {
+            let name = e.getHeader('Event-Name');
+            let sub = e.getHeader('Event-Subclass');
+            if (sub) {
+                name = name + '::' + sub;
+            }
+            if (name == null) {
+                name = e.serialize('json');
+            }
+            console.log(cc++, name);
+        });
+        call.executeEx('callcenter', 'rk-queue');
+        return r;
+    }
+    catch (error) {
+        console.log(error);
+    }
+    finally {
+        setTimeout(() => {
+            call.disconnect();
+        }, 3000);
+    }
+}
+exports.cc = cc;
 async function onConnection(conn) {
     const call = new index_1.EslCallEx(conn);
     try {
-        let r = await call.linger();
+        let r = await call.linger(3);
         await call.subscribe('all');
         let cc = 0;
         conn.on('esl::event::**', (e) => {
@@ -35,10 +65,11 @@ async function onConnection(conn) {
         call.disconnect();
     }
 }
+exports.onConnection = onConnection;
 const server = new index_1.EslServer({
     port: 8040,
     host: '0.0.0.0',
-    onConnection: onConnection,
+    onConnection: cc,
     onError: (e) => {
         console.log(e);
     },
