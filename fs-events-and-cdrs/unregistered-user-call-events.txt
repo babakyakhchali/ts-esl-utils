@@ -1,0 +1,232 @@
+RECV EVENT
+Event-Subclass: callcenter::info
+Event-Name: CUSTOM
+Core-UUID: 9cca0654-c335-4f65-80c9-549f5f1bdc7a
+FreeSWITCH-Hostname: fs-1
+FreeSWITCH-Switchname: fs-1
+FreeSWITCH-IPv4: 192.168.184.128
+FreeSWITCH-IPv6: ::1
+Event-Date-Local: 2020-04-26 14:33:40
+Event-Date-GMT: Sun, 26 Apr 2020 10:03:40 GMT
+Event-Date-Timestamp: 1587895420939097
+Event-Calling-File: mod_callcenter.c
+Event-Calling-Function: outbound_agent_thread_run
+Event-Calling-Line-Number: 2187
+Event-Sequence: 21253
+CC-Queue: rk-queue
+CC-Action: bridge-agent-fail
+CC-Hangup-Cause: USER_NOT_REGISTERED
+CC-Agent: yakhchali.b
+CC-Agent-System: single_box
+CC-Agent-Called-Time: 1587895420
+CC-Agent-Aborted-Time: 1587895420
+CC-Member-UUID: 20081fee-d848-4293-adf5-541578e13358
+CC-Member-Session-UUID: d14eaed5-cb54-4912-9eeb-9ae6ea27d8ac
+CC-Member-CID-Name: 22112211
+CC-Member-CID-Number: 22112211
+CC-Member-Joined-Time: 1587895420
+
+
+
+RECV EVENT
+Event-Name: CHANNEL_EXECUTE_COMPLETE
+Core-UUID: 9cca0654-c335-4f65-80c9-549f5f1bdc7a
+FreeSWITCH-Hostname: fs-1
+FreeSWITCH-Switchname: fs-1
+FreeSWITCH-IPv4: 192.168.184.128
+FreeSWITCH-IPv6: ::1
+Event-Date-Local: 2020-04-26 14:51:40
+Event-Date-GMT: Sun, 26 Apr 2020 10:21:40 GMT
+Event-Date-Timestamp: 1587896500758939
+Event-Calling-File: switch_core_session.c
+Event-Calling-Function: switch_core_session_exec
+Event-Calling-Line-Number: 2893
+Event-Sequence: 21437
+Channel-State: CS_EXECUTE
+Channel-Call-State: ACTIVE
+Channel-State-Number: 4
+Channel-Name: sofia/external/22112211@192.168.184.128
+Unique-ID: 6f491535-918d-437d-9d9e-6e5539dc8c29
+Call-Direction: inbound
+Presence-Call-Direction: inbound
+Channel-HIT-Dialplan: true
+Channel-Call-UUID: 6f491535-918d-437d-9d9e-6e5539dc8c29
+Answer-State: answered
+Channel-Read-Codec-Name: opus
+Channel-Read-Codec-Rate: 48000
+Channel-Read-Codec-Bit-Rate: 0
+Channel-Write-Codec-Name: opus
+Channel-Write-Codec-Rate: 48000
+Channel-Write-Codec-Bit-Rate: 0
+Caller-Direction: inbound
+Caller-Logical-Direction: inbound
+Caller-Username: 22112211
+Caller-Dialplan: XML
+Caller-Caller-ID-Name: 22112211
+Caller-Caller-ID-Number: 22112211
+Caller-Orig-Caller-ID-Name: 22112211
+Caller-Orig-Caller-ID-Number: 22112211
+Caller-Network-Addr: 192.168.184.1
+Caller-ANI: 22112211
+Caller-Destination-Number: 800
+Caller-Unique-ID: 6f491535-918d-437d-9d9e-6e5539dc8c29
+Caller-Source: mod_sofia
+Caller-Context: public
+Caller-Channel-Name: sofia/external/22112211@192.168.184.128
+Caller-Profile-Index: 1
+Caller-Profile-Created-Time: 1587896494619535
+Caller-Channel-Created-Time: 1587896494619535
+Caller-Channel-Answered-Time: 1587896494698739
+Caller-Channel-Progress-Time: 0
+Caller-Channel-Progress-Media-Time: 1587896494698739
+Caller-Channel-Hangup-Time: 0
+Caller-Channel-Transfer-Time: 0
+Caller-Channel-Resurrect-Time: 0
+Caller-Channel-Bridged-Time: 0
+Caller-Channel-Last-Hold: 0
+Caller-Channel-Hold-Accum: 0
+Caller-Screen-Bit: true
+Caller-Privacy-Hide-Name: false
+Caller-Privacy-Hide-Number: false
+variable_direction: inbound
+variable_uuid: 6f491535-918d-437d-9d9e-6e5539dc8c29
+variable_session_id: 160
+variable_sip_from_user: 22112211
+variable_sip_from_uri: 22112211@192.168.184.128
+variable_sip_from_host: 192.168.184.128
+variable_video_media_flow: disabled
+variable_text_media_flow: disabled
+variable_channel_name: sofia/external/22112211@192.168.184.128
+variable_sip_local_network_addr: 192.168.184.128
+variable_sip_network_ip: 192.168.184.1
+variable_sip_network_port: 58585
+variable_sip_invite_stamp: 1587896494619535
+variable_sip_received_ip: 192.168.184.1
+variable_sip_received_port: 58585
+variable_sip_via_protocol: udp
+variable_sip_from_user_stripped: 22112211
+variable_sofia_profile_name: external
+variable_sofia_profile_url: sip:mod_sofia@192.168.184.128:5080
+variable_recovery_profile_name: external
+variable_sip_allow: PRACK, INVITE, ACK, BYE, CANCEL, UPDATE, INFO, SUBSCRIBE, NOTIFY, REFER, MESSAGE, OPTIONS
+variable_sip_req_user: 800
+variable_sip_req_port: 5080
+variable_sip_req_uri: 800@192.168.184.128:5080
+variable_sip_req_host: 192.168.184.128
+variable_sip_to_user: 800
+variable_sip_to_uri: 800@192.168.184.128
+variable_sip_to_host: 192.168.184.128
+variable_sip_contact_params: ob
+variable_sip_contact_user: 22112211
+variable_sip_contact_port: 58585
+variable_sip_contact_uri: 22112211@192.168.184.1:58585
+variable_sip_contact_host: 192.168.184.1
+variable_sip_user_agent: MicroSIP/3.19.27
+variable_sip_via_host: 192.168.184.1
+variable_sip_via_port: 58585
+variable_sip_via_rport: 58585
+variable_max_forwards: 70
+variable_switch_r_sdp: v=0
+o=- 3798623641 3798623641 IN IP4 192.168.0.100
+s=pjmedia
+b=AS:67
+t=0 0
+a=X-nat:0
+m=audio 4014 RTP/AVP 96 101
+c=IN IP4 192.168.0.100
+b=TIAS:48000
+a=rtpmap:96 opus/48000/2
+a=fmtp:96 maxplaybackrate=24000;sprop-maxcapturerate=24000;maxaveragebitrate=20000;useinbandfec=1
+a=rtpmap:101 telephone-event/48000
+a=fmtp:101 0-16
+a=rtcp:4015 IN IP4 192.168.0.100
+a=ssrc:955003615 cname:7577357529fb659f
+
+variable_ep_codec_string: mod_opus.opus@48000h@20i@2c
+variable_call_uuid: 6f491535-918d-437d-9d9e-6e5539dc8c29
+variable_effective_caller_id_name: IN
+variable_rk_service_type: IN_VOIP
+variable_sip_h_X-ServiceType: IN_VOIP
+variable_rtp_use_codec_string: OPUS,G722,PCMU,PCMA
+variable_remote_video_media_flow: inactive
+variable_remote_text_media_flow: inactive
+variable_remote_audio_media_flow: sendrecv
+variable_audio_media_flow: sendrecv
+variable_rtp_remote_audio_rtcp_port: 4015
+variable_rtp_audio_recv_pt: 96
+variable_rtp_use_codec_name: opus
+variable_rtp_use_codec_fmtp: maxplaybackrate=24000;sprop-maxcapturerate=24000;maxaveragebitrate=20000;useinbandfec=1
+variable_rtp_use_codec_rate: 48000
+variable_rtp_use_codec_ptime: 20
+variable_rtp_use_codec_channels: 1
+variable_rtp_last_audio_codec_string: opus@48000h@20i@1c
+variable_read_codec: opus
+variable_original_read_codec: opus
+variable_read_rate: 48000
+variable_original_read_rate: 48000
+variable_write_codec: opus
+variable_write_rate: 48000
+variable_dtmf_type: rfc2833
+variable_local_media_ip: 192.168.184.128
+variable_local_media_port: 10620
+variable_advertised_media_ip: 192.168.184.128
+variable_rtp_use_timer_name: timerfd
+variable_rtp_use_pt: 96
+variable_rtp_use_ssrc: 1933629897
+variable_rtp_2833_send_payload: 101
+variable_rtp_2833_recv_payload: 101
+variable_remote_media_ip: 192.168.0.100
+variable_remote_media_port: 4014
+variable_rtp_local_sdp_str: v=0
+o=FreeSWITCH 1587885874 1587885875 IN IP4 192.168.184.128
+s=FreeSWITCH
+c=IN IP4 192.168.184.128
+t=0 0
+m=audio 10620 RTP/AVP 96 101
+a=rtpmap:96 opus/48000/2
+a=fmtp:96 useinbandfec=1
+a=rtpmap:101 telephone-event/48000
+a=fmtp:101 0-16
+a=ptime:20
+a=sendrecv
+a=rtcp:10621 IN IP4 192.168.184.128
+
+variable_endpoint_disposition: ANSWER
+variable_sound_prefix: /usr/local/freeswitch/sounds/rk
+variable_continue_on_fail: true
+variable_force_transfer_context: default
+variable_ringback: %(1000,4000,425)
+variable_sip_h_X-queue: IN
+variable_sip_h_X-RemainingSecs: 2700
+variable_cc_export_vars: sip_h_X-queue,sip_h_X-RemainingSecs
+variable_sip_to_tag: ySyBUNvjU064g
+variable_sip_from_tag: 125d353f2d93402980dc7ec3eea48fec
+variable_sip_cseq: 9766
+variable_sip_call_id: 3416d27f0cba452195110882363b7017
+variable_sip_full_via: SIP/2.0/UDP 192.168.184.1:58585;rport=58585;branch=z9hG4bKPj09748541a6474e94bb1b27d5fb4d6c31
+variable_sip_full_from: <sip:22112211@192.168.184.128>;tag=125d353f2d93402980dc7ec3eea48fec
+variable_sip_full_to: <sip:800@192.168.184.128>;tag=ySyBUNvjU064g
+variable_remote_audio_ip_reported: 192.168.0.100
+variable_remote_audio_ip: 192.168.184.1
+variable_remote_audio_port_reported: 4014
+variable_remote_audio_port: 4014
+variable_rtp_auto_adjust_audio: true
+variable_playback_last_offset_pos: 202596
+variable_playback_seconds: 4
+variable_playback_ms: 4220
+variable_playback_samples: 67532
+variable_read_result: success
+variable_call_timeout: 15
+variable_rk_last_ext: yakhchali.b
+variable_import: dcid
+variable_current_application_data: user/yakhchali.b
+variable_current_application: bridge
+variable_dialed_user: yakhchali.b
+variable_dialed_domain: 192.168.184.128
+variable_originate_disposition: USER_NOT_REGISTERED
+variable_DIALSTATUS: USER_NOT_REGISTERED
+variable_originate_failed_cause: USER_NOT_REGISTERED
+Application: bridge
+Application-Data: user/yakhchali.b
+Application-Response: _none_
+Application-UUID: efcb6fe8-2128-4ff8-9ab6-39b7a1bcd2e1

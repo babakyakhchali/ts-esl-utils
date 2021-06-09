@@ -35,6 +35,22 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Api Helper",
+            "program": "${workspaceFolder}\\dist\\example\\apihelper.js",
+            "sourceMaps": true,
+            "smartStep": true,
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ],
+            "preLaunchTask": "npm: build",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
         }
     ]
 }

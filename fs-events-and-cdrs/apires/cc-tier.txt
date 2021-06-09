@@ -1,0 +1,23 @@
+queue|agent|state|level|position
+rk-queue|alidadi.l|Ready|1|1
+rk-queue|esmaeelnezhad.b|Ready|1|1
+rk-queue|salehirad.a|Ready|1|1
+rk-queue|kourosh|Ready|1|1
+supervisorqueue|esmaeili.m|Ready|1|1
+rk-queue|rezaei.m|Ready|1|1
+rk-queue|biabani.n|No Answer|1|1
+supervisorqueue|bahmani.b|Ready|1|1
+rk-queue|karimi.a|No Answer|1|1
+rk-queue|bahmani.b|Ready|1|1
+rk|yakhchali.b|Ready|1|1
+supervisorqueue|mir.m|Ready|1|1
+supervisorqueue|payam|Ready|1|1
+rk-queue|saffari.m|Ready|1|1
+rk-queue|salemi.a|Active Inbound|1|1
+rk-queue|goudarzi.m|Active Inbound|1|1
+supervisorqueue|yakhchali.b|Ready|1|1
+rk-queue|yakhchali.b|Ready|1|1
+rk-queue|hoseini.j|Active Inbound|1|1
+rk-queue|momeni.s|Active Inbound|1|1
+rk-queue|taghavi.m|Ready|1|1
++OK

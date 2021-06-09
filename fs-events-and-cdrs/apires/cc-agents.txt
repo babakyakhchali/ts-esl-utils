@@ -1,0 +1,20 @@
+name|system|uuid|type|contact|status|state|max_no_answer|wrap_up_time|reject_delay_time|busy_delay_time|no_answer_delay_time|last_bridge_start|last_bridge_end|last_offered_call|last_status_change|no_answer_count|calls_answered|talk_time|ready_time
+taghavi.m|single_box||callback|[leg_timeout=10]user/taghavi.m|Available|Waiting|0|10|10|60|0|1583914164|1583914203|1583914159|1583054452|0|130|114808|1583912941
+alidadi.l|single_box||callback|[leg_timeout=10]user/alidadi.l|Available|Waiting|0|10|10|60|0|1583872595|1583872752|1583914034|1583405962|0|128|90366|1583914039
+esmaeelnezhad.b|single_box||callback|[leg_timeout=10]user/esmaeelnezhad.b|Available|Waiting|0|10|10|60|0|1583879015|1583879141|1583914034|1583054452|0|148|71992|1583914039
+biabani.n|single_box||callback|[leg_timeout=10]user/biabani.n|Available|Waiting|0|10|10|60|0|1583912185|1583914221|1583914374|1583405962|1|181|99009|1583906210
+goudarzi.m|single_box|3fee9f24-0405-4edb-85b4-1c3d65bfe5cc|callback|[leg_timeout=10]user/goudarzi.m|Available|In a queue call|0|10|10|60|0|1583913029|1583912995|1583913026|1583405717|0|181|87117|1583908138
+karimi.a|single_box||callback|[leg_timeout=10]user/karimi.a|Available|Waiting|0|10|10|60|0|1583912651|1583914361|1583914384|1583054453|1|138|47722|1583912481
+hoseini.j|single_box|c4ba5bf7-eae6-44c2-bff2-55a0d57b503a|callback|[leg_timeout=10]user/hoseini.j|Available|In a queue call|0|10|10|60|0|1583913165|1583912973|1583913161|1583405717|0|126|120067|1583901809
+bahmani.b|single_box||callback|[leg_timeout=10]user/bahmani.b|Available|Waiting|0|10|10|60|0|0|0|1583914394|1583054452|2|0|0|1583914399
+payam|single_box||callback|[leg_timeout=10]user/payam|Available|Waiting|0|10|10|60|0|0|0|1583914395|1583405717|105|0|0|1583914400
+mir.m|single_box||callback|[leg_timeout=10]user/mir.m|Available|Waiting|0|10|10|60|0|0|0|1583914395|1583405718|22|0|0|1583914400
+salemi.a|single_box|a8f6de46-dbdd-45dd-8bf2-39e8be47daf2|callback|[leg_timeout=10]user/salemi.a|Available|In a queue call|0|10|10|60|0|1583913927|1583913708|1583913921|1583054452|0|140|33993|1583903549
+momeni.s|single_box|6056bcc4-b100-4850-a82d-4f58cae9a4fb|callback|[leg_timeout=10]user/momeni.s|Available|In a queue call|0|10|10|60|0|1583914044|1583913648|1583914036|1583054452|0|69|17583|1583912943
+saffari.m|single_box||callback|[leg_timeout=10]user/saffari.m|Available|Waiting|0|10|10|60|0|1583913713|1583913903|1583914394|1583054452|2|173|62415|1583913395
+rezaei.m|single_box||callback|[leg_timeout=10]user/rezaei.m|Available|Waiting|0|10|10|60|0|1583880217|1583881024|1583914035|1583054453|0|93|47041|1583914041
+yakhchali.b|single_box||callback|[leg_timeout=10]user/yakhchali.b|Available|Waiting|0|10|10|60|0|1583049019|1583049035|1583914394|1583055397|13|0|0|1583914399
+esmaeili.m|single_box||callback|[leg_timeout=10]user/esmaeili.m|Available|Waiting|0|10|10|60|0|1583842448|1583843079|1583914395|1583054452|2|26|11833|1583914401
+salehirad.a|single_box||callback|[leg_timeout=10]user/salehirad.a|Available|Waiting|0|10|10|60|0|1583870645|1583870780|1583914035|1583054453|0|146|42624|1583914040
+kourosh|single_box||callback|[leg_timeout=10]user/kourosh|Available|Waiting|0|10|10|60|0|1583393536|1583393557|1583914035|1583138234|40|20|1726|1583914040
++OK

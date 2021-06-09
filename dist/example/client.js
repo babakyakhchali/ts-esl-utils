@@ -5,6 +5,12 @@ class Test {
     constructor() {
         this.con = new __1.EslConnectionToFs();
     }
+    async runcmd() {
+        await this.con.connect('127.0.0.1', 8021, 'ClueCon', 3);
+        console.log(await this.con.api('callcenter_config', 'agent list'));
+        console.log(await this.con.api('callcenter_config', 'queue list'));
+        console.log(await this.con.api('callcenter_config', 'tier list'));
+    }
     async listen() {
         await this.con.connect('127.0.0.1', 8021, 'ClueCon', 3);
         await this.con.subscribe('CHANNEL_CREATE CHANNEL_HANGUP CHANNEL_ANSWERED CHANNEL_PROGRESS CUSTOM conference::maintenance');
@@ -18,5 +24,5 @@ class Test {
     }
 }
 const t = new Test;
-t.listen().catch(e => console.error('error connecting', e));
+t.runcmd().catch(e => console.error('error connecting', e));
 //# sourceMappingURL=client.js.map

@@ -1,0 +1,7 @@
+queue|system|uuid|session_uuid|cid_number|cid_name|system_epoch|joined_epoch|rejoined_epoch|bridge_epoch|abandoned_epoch|base_score|skill_score|serving_agent|serving_system|state|score
+rk-queue|single_box|f0ed1960-b0b7-4790-9d21-15ef50e0325e|e73d180a-ace9-4aab-a094-df2980698616|9092122635345||1583913020|1583913026|0|1583913029|0|6|0|goudarzi.m|single_box|Answered|1472
+rk-queue|single_box|319874dc-7d31-4c5e-941a-b32a7a24d16a|d7a607fb-090b-462c-bd7c-84faa4328a52|9092176286193||1583913145|1583913161|0|1583913165|0|16|0|hoseini.j|single_box|Answered|1347
+rk-queue|single_box|e3703059-fc5b-4fac-b7f1-28bbcaa86788|239781ad-c7f9-499a-83de-e6b81dde0c28|9098345239310||1583913904|1583913910|0|1583913927|0|6|0|salemi.a|single_box|Answered|588
+rk-queue|single_box|e298a728-6fe6-40ad-b2f4-871400ae744b|cfd21b9f-6098-47e8-8e26-a4b19a86708e|0909985632493522||1583914017|1583914023|0|1583914044|0|6|0|momeni.s|single_box|Answered|475
+rk-queue|single_box|2fa25787-00c8-4f1c-bcc9-1a74b73a552d|25183805-594e-4be8-ab89-e82c18e9648f|9092177125022||1583914427|1583914434|0|1583914438|0|7|0|taghavi.m|single_box|Answered|65
++OK

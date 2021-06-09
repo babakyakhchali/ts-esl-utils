@@ -1,3 +1,181 @@
+export interface ICall {
+    uuid: string;
+    direction: string;
+    created: string;
+    created_epoch: string;
+    name: string;
+    state: string;
+    cid_name: string;
+    cid_num: string;
+    ip_addr: string;
+    dest: string;
+    presence_id: string;
+    presence_data: string;
+    accountcode: string;
+    callstate: string;
+    callee_name: string;
+    callee_num: string;
+    callee_direction: string;
+    call_uuid: string;
+    hostname: string;
+    sent_callee_name: string;
+    sent_callee_num: string;
+    b_uuid: string;
+    b_direction: string;
+    b_created: string;
+    b_created_epoch: string;
+    b_name: string;
+    b_state: string;
+    b_cid_name: string;
+    b_cid_num: string;
+    b_ip_addr: string;
+    b_dest: string;
+    b_presence_id: string;
+    b_presence_data: string;
+    b_accountcode: string;
+    b_callstate: string;
+    b_callee_name: string;
+    b_callee_num: string;
+    b_callee_direction: string;
+    b_sent_callee_name: string;
+    b_sent_callee_num: string;
+    call_created_epoch: string;
+}
+
+export interface IChannel {
+    uuid: string;
+    direction: string;
+    created: string;
+    created_epoch: string;
+    name: string;
+    state: string;
+    cid_name: string;
+    cid_num: string;
+    ip_addr: string;
+    dest: string;
+    application: string;
+    application_data: string;
+    dialplan: string;
+    context: string;
+    read_codec: string;
+    read_rate: string;
+    read_bit_rate: string;
+    write_codec: string;
+    write_rate: string;
+    write_bit_rate: string;
+    secure: string;
+    hostname: string;
+    presence_id: string;
+    presence_data: string;
+    accountcode: string;
+    callstate: string;
+    callee_name: string;
+    callee_num: string;
+    callee_direction: string;
+    call_uuid: string;
+    sent_callee_name: string;
+    sent_callee_num: string;
+    initial_cid_name: string;
+    initial_cid_num: string;
+    initial_ip_addr: string;
+    initial_dest: string;
+    initial_dialplan: string;
+    initial_context: string;
+}
+
+export interface IShowResult<T> {
+    row_count: number;
+    rows: T[]
+}
+
+export const CCAgentStatusData = [
+    {
+        "status": "Logged Out",
+        "help": "Cannot receive queue calls."
+    },
+    {
+        "status": "Available",
+        "help": "Ready to receive queue calls."
+    },
+    {
+        "status": "Available (On Demand)",
+        "help": "State will be set to 'Idle' once the call ends (not automatically set to 'Waiting')."
+    },
+    {
+        "status": "On Break",
+        "help": "Still Logged in"
+    }
+]
+
+export type CCAgentStatus = 'Logged Out'|'Available'|'Available (On Demand)'|'On Break';
+export interface ICCTier {
+    queue: string;
+    agent: string;
+    state: string;
+    level: number;
+    position: number;
+}
+
+export interface ICCQueue {
+    queue: string;
+    system: string;
+    uuid: string;
+    session_uuid: string;
+    cid_number: number;
+    cid_name: string;
+    system_epoch: number;
+    joined_epoch: number;
+    rejoined_epoch: number;
+    bridge_epoch: number;
+    abandoned_epoch: number;
+    base_score: number;
+    skill_score: number;
+    serving_agent: string;
+    serving_system: string;
+    state: string;
+    score: number;
+}
+
+export interface ICCAgent {
+    queue: string;
+    system: string;
+    uuid: string;
+    session_uuid: string;
+    cid_number: number;
+    cid_name: string;
+    system_epoch: number;
+    joined_epoch: number;
+    rejoined_epoch: number;
+    bridge_epoch: number;
+    abandoned_epoch: number;
+    base_score: number;
+    skill_score: number;
+    serving_agent: string;
+    serving_system: string;
+    state: string;
+    score: number;
+}
+
+export interface ICCMember {
+    queue: string;
+    system: string;
+    uuid: string;
+    session_uuid: string;
+    cid_number: number;
+    cid_name: string;
+    system_epoch: number;
+    joined_epoch: number;
+    rejoined_epoch: number;
+    bridge_epoch: number;
+    abandoned_epoch: number;
+    base_score: number;
+    skill_score: number;
+    serving_agent: string;
+    serving_system: string;
+    state: string;
+    score: number;
+}
+
 export interface IFsConfMemberFlags {
     can_hear: boolean;
     can_see: boolean;
@@ -200,4 +378,5 @@ export interface IChannelData {
     Control: string;
     'Modesl-Reply-OK': string;
     'Content-Length': number;
-  }
+}
+
