@@ -116,24 +116,26 @@ export interface ICCTier {
     position: number;
 }
 
-export interface ICCQueue {
-    queue: string;
-    system: string;
-    uuid: string;
-    session_uuid: string;
-    cid_number: number;
-    cid_name: string;
-    system_epoch: number;
-    joined_epoch: number;
-    rejoined_epoch: number;
-    bridge_epoch: number;
-    abandoned_epoch: number;
-    base_score: number;
-    skill_score: number;
-    serving_agent: string;
-    serving_system: string;
-    state: string;
-    score: number;
+export interface ICCQueue {    
+    name: string;
+    strategy: string;
+    moh_sound: string;
+    time_base_score: string;
+    tier_rules_apply: string;
+    tier_rule_wait_second: string;
+    tier_rule_wait_multiply_level: string;
+    tier_rule_no_agent_no_wait: string;
+    discard_abandoned_after: string;
+    abandoned_resume_allowed: string;
+    max_wait_time: string;
+    max_wait_time_with_no_agent: string;
+    max_wait_time_with_no_agent_time_reached: string;
+    record_template: string;
+    calls_answered: string;
+    calls_abandoned: string;
+    ring_progressively_delay: string;
+    skip_agents_with_external_calls: string;
+    agent_no_answer_status: string;    
 }
 
 export interface ICCAgent {

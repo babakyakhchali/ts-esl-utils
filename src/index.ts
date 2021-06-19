@@ -248,3 +248,6 @@ export class EslCallEx extends EslCall{
         return super.execute(app,args);
     }
 }
+
+export {FsApi,FsCcApi,FsStatusApi} from "./api"
+export {ICCAgent,ICCMember,ICCQueue,ICCTier,ICall,IChannel,IShowResult} from "./fstypes"

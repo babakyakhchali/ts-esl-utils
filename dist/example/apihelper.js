@@ -9,11 +9,14 @@ async function runtest() {
     await api.init();
     const cc = new api_1.FsCcApi(api);
     const status = new api_1.FsStatusApi(api);
+    console.log(await status.status());
     console.log(await status.getChannels());
     console.log(await status.getCalls());
     console.log(await cc.getAgents());
     console.log(await cc.getTiers());
     console.log(await cc.getQueues());
+    api.close();
+    process.exit(0);
 }
 exports.runtest = runtest;
 runtest();

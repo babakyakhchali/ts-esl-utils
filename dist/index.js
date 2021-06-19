@@ -213,4 +213,8 @@ class EslCallEx extends EslCall {
     }
 }
 exports.EslCallEx = EslCallEx;
+var api_1 = require("./api");
+exports.FsApi = api_1.FsApi;
+exports.FsCcApi = api_1.FsCcApi;
+exports.FsStatusApi = api_1.FsStatusApi;
 //# sourceMappingURL=index.js.map

@@ -93,4 +93,5 @@ export declare class EslCallEx extends EslCall {
     constructor(conn: any);
     execute(app: string, args?: string): Promise<IEslEvent>;
 }
-export {};
+export { FsApi, FsCcApi, FsStatusApi } from "./api";
+export { ICCAgent, ICCMember, ICCQueue, ICCTier, ICall, IChannel, IShowResult } from "./fstypes";

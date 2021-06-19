@@ -5,6 +5,7 @@ export declare class FsApi {
     init(): Promise<any>;
     executeString(s: string): Promise<string>;
     show<T>(target: string, opts?: string): Promise<T[]>;
+    close(): void;
 }
 interface IApiExecutorConf {
     host?: string;
@@ -28,6 +29,7 @@ export declare class FsCcApi {
 export declare class FsStatusApi {
     private fsapi;
     constructor(fsapi: FsApi);
+    status(): Promise<string>;
     getChannels(): Promise<IChannel[]>;
     getCalls(): Promise<ICall[]>;
     killCall(uuid: string): Promise<void>;

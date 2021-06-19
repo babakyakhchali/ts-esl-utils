@@ -27,6 +27,9 @@ class FsApi {
         const s = await this.executor.executeString('show ' + target + (opts || ''));
         return utils_1.parseCSV(s);
     }
+    close() {
+        this.executor.close();
+    }
 }
 exports.FsApi = FsApi;
 class EslApiExecutor {
@@ -37,6 +40,9 @@ class EslApiExecutor {
         }
         this.esl = new _1.EslConnectionToFs();
     }
+    close() {
+        this.esl.conn.disconnect();
+    }
     async init() {
         return this.esl.connect(this.conf.host, this.conf.eslPort, this.conf.eslPassword, 10);
     }
@@ -46,6 +52,9 @@ class EslApiExecutor {
     }
 }
 class SshApiExecutor {
+    close() {
+        throw new Error("Method not implemented.");
+    }
     init() {
         throw new Error("Method not implemented.");
     }
@@ -54,6 +63,9 @@ class SshApiExecutor {
     }
 }
 class CmdApiExecutor {
+    close() {
+        throw new Error("Method not implemented.");
+    }
     init() {
         throw new Error("Method not implemented.");
     }
@@ -107,6 +119,9 @@ exports.FsCcApi = FsCcApi;
 class FsStatusApi {
     constructor(fsapi) {
         this.fsapi = fsapi;
+    }
+    async status() {
+        return this.fsapi.executeString('status');
     }
     async getChannels() {
         return this.fsapi.show('channels');
