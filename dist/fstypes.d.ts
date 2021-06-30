@@ -94,8 +94,8 @@ export interface ICCTier {
     queue: string;
     agent: string;
     state: string;
-    level: number;
-    position: number;
+    level: string;
+    position: string;
 }
 export interface ICCQueue {
     name: string;
@@ -123,51 +123,51 @@ export interface ICCAgent {
     system: string;
     uuid: string;
     session_uuid: string;
-    cid_number: number;
+    cid_number: string;
     cid_name: string;
-    system_epoch: number;
-    joined_epoch: number;
-    rejoined_epoch: number;
-    bridge_epoch: number;
-    abandoned_epoch: number;
-    base_score: number;
-    skill_score: number;
+    system_epoch: string;
+    joined_epoch: string;
+    rejoined_epoch: string;
+    bridge_epoch: string;
+    abandoned_epoch: string;
+    base_score: string;
+    skill_score: string;
     serving_agent: string;
     serving_system: string;
     state: string;
-    score: number;
+    score: string;
 }
 export interface ICCMember {
     queue: string;
     system: string;
     uuid: string;
     session_uuid: string;
-    cid_number: number;
+    cid_number: string;
     cid_name: string;
-    system_epoch: number;
-    joined_epoch: number;
-    rejoined_epoch: number;
-    bridge_epoch: number;
-    abandoned_epoch: number;
-    base_score: number;
-    skill_score: number;
+    system_epoch: string;
+    joined_epoch: string;
+    rejoined_epoch: string;
+    bridge_epoch: string;
+    abandoned_epoch: string;
+    base_score: string;
+    skill_score: string;
     serving_agent: string;
     serving_system: string;
     state: string;
-    score: number;
+    score: string;
 }
 export interface IFsConfMemberFlags {
-    can_hear: boolean;
-    can_see: boolean;
-    can_speak: boolean;
-    hold: boolean;
-    mute_detect: boolean;
-    talking: boolean;
-    has_video: boolean;
-    video_bridge: boolean;
-    has_floor: boolean;
-    is_moderator: boolean;
-    end_conference: boolean;
+    can_hear: string;
+    can_see: string;
+    can_speak: string;
+    hold: string;
+    mute_detect: string;
+    talking: string;
+    has_video: string;
+    video_bridge: string;
+    has_floor: string;
+    is_moderator: string;
+    end_conference: string;
 }
 export interface IFsConfMember {
     type: string;

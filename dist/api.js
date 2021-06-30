@@ -73,9 +73,15 @@ class CmdApiExecutor {
         throw new Error("Method not implemented.");
     }
 }
-class FsCcApi {
+class FsApiEx {
     constructor(fsapi) {
         this.fsapi = fsapi;
+    }
+    getAPI() {
+        return this.fsapi;
+    }
+    close() {
+        this.fsapi.close();
     }
     async ccListApi(api) {
         const r = await this.fsapi.executeString(api);
@@ -99,26 +105,48 @@ class FsCcApi {
             console.error(r);
             throw "AddAgentError";
         }
-        this.updateAgent(name, 'contact', contact);
+        return this.updateAgent(name, 'contact', contact);
     }
     async getAgents() {
         return this.ccListApi('callcenter_config agent list');
     }
     async updateAgent(name, attr, value) {
-        const r = await this.fsapi.executeString(`callcenter_config agent set status ${name} ${attr} ${value}`);
+        const r = await this.fsapi.executeString(`callcenter_config agent set ${name} ${attr} ${value}`);
         if (!r.trimRight().endsWith('+OK')) {
             console.error(r);
             throw "UpdateAgentError";
         }
     }
     async setAgentStatus(name, status) {
-        this.updateAgent(name, 'status', status);
+        return this.updateAgent(name, 'status', status);
     }
-}
-exports.FsCcApi = FsCcApi;
-class FsStatusApi {
-    constructor(fsapi) {
-        this.fsapi = fsapi;
+    async delTier(tier) {
+        const r = await this.fsapi.executeString(`callcenter_config tier del ${tier.queue} ${tier.agent}`);
+        if (!r.trimRight().endsWith('+OK')) {
+            console.error(r);
+            throw "TierError";
+        }
+    }
+    async addTier(tier) {
+        const r = await this.fsapi.executeString(`callcenter_config tier add ${tier.queue} ${tier.agent} ${tier.level || 1} ${tier.position || 1}`);
+        if (!r.trimRight().endsWith('+OK')) {
+            console.error(r);
+            throw "TierError";
+        }
+    }
+    async setTier(tier, param, value) {
+        const r = await this.fsapi.executeString(`callcenter_config tier set ${param} ${tier.queue} ${tier.agent} ${value}`);
+        if (!r.trimRight().endsWith('+OK')) {
+            console.error(r);
+            throw "TierError";
+        }
+    }
+    async reloadTier(tier) {
+        const r = await this.fsapi.executeString(`callcenter_config tier reload ${tier.queue} ${tier.agent}`);
+        if (!r.trimRight().endsWith('+OK')) {
+            console.error(r);
+            throw "TierError";
+        }
     }
     async status() {
         return this.fsapi.executeString('status');
@@ -140,5 +168,5 @@ class FsStatusApi {
         return r == 'true';
     }
 }
-exports.FsStatusApi = FsStatusApi;
+exports.FsApiEx = FsApiEx;
 //# sourceMappingURL=api.js.map

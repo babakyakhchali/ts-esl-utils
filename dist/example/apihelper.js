@@ -7,14 +7,13 @@ const password = 'ClueCon';
 async function runtest() {
     const api = new api_1.FsApi('ESL', { host: host, eslPort: port, eslPassword: password });
     await api.init();
-    const cc = new api_1.FsCcApi(api);
-    const status = new api_1.FsStatusApi(api);
-    console.log(await status.status());
-    console.log(await status.getChannels());
-    console.log(await status.getCalls());
-    console.log(await cc.getAgents());
-    console.log(await cc.getTiers());
-    console.log(await cc.getQueues());
+    const apiEx = new api_1.FsApiEx(api);
+    console.log(await apiEx.status());
+    console.log(await apiEx.getChannels());
+    console.log(await apiEx.getCalls());
+    console.log(await apiEx.getAgents());
+    console.log(await apiEx.getTiers());
+    console.log(await apiEx.getQueues());
     api.close();
     process.exit(0);
 }

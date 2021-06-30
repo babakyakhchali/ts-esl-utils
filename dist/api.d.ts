@@ -14,21 +14,23 @@ interface IApiExecutorConf {
     eslPort?: number;
     eslPassword?: string;
 }
-export declare class FsCcApi {
+export declare class FsApiEx {
     private fsapi;
     constructor(fsapi: FsApi);
+    getAPI(): FsApi;
+    close(): void;
     ccListApi<T>(api: string): Promise<T[]>;
     getQeueueMembers(queue: string): Promise<ICCMember[]>;
     getTiers(): Promise<ICCTier[]>;
     getQueues(): Promise<ICCQueue[]>;
     addAgent(name: string, contact: string, type?: string): Promise<void>;
     getAgents(): Promise<ICCAgent[]>;
-    private updateAgent;
+    updateAgent(name: string, attr: string, value: string): Promise<void>;
     setAgentStatus(name: string, status: CCAgentStatus): Promise<void>;
-}
-export declare class FsStatusApi {
-    private fsapi;
-    constructor(fsapi: FsApi);
+    delTier(tier: ICCTier): Promise<void>;
+    addTier(tier: ICCTier): Promise<void>;
+    setTier(tier: ICCTier, param: 'level' | 'position' | 'state', value: string): Promise<void>;
+    reloadTier(tier: ICCTier): Promise<void>;
     status(): Promise<string>;
     getChannels(): Promise<IChannel[]>;
     getCalls(): Promise<ICall[]>;
