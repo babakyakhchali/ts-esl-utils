@@ -119,23 +119,27 @@ export interface ICCQueue {
     agent_no_answer_status: string;
 }
 export interface ICCAgent {
-    queue: string;
-    system: string;
+    name: string;
+    instance_id: string;
     uuid: string;
-    session_uuid: string;
-    cid_number: string;
-    cid_name: string;
-    system_epoch: string;
-    joined_epoch: string;
-    rejoined_epoch: string;
-    bridge_epoch: string;
-    abandoned_epoch: string;
-    base_score: string;
-    skill_score: string;
-    serving_agent: string;
-    serving_system: string;
+    type: string;
+    contact: string;
+    status: string;
     state: string;
-    score: string;
+    max_no_answer: string;
+    wrap_up_time: string;
+    reject_delay_time: string;
+    busy_delay_time: string;
+    no_answer_delay_time: string;
+    last_bridge_start: string;
+    last_bridge_end: string;
+    last_offered_call: string;
+    last_status_change: string;
+    no_answer_count: string;
+    calls_answered: string;
+    talk_time: string;
+    ready_time: string;
+    external_calls_count: string;
 }
 export interface ICCMember {
     queue: string;
@@ -155,6 +159,25 @@ export interface ICCMember {
     serving_system: string;
     state: string;
     score: string;
+}
+export interface ICCAgentStatusChange {
+    "Event-Subclass": string;
+    "Event-Name": string;
+    "Core-UUID": string;
+    "FreeSWITCH-Hostname": string;
+    "FreeSWITCH-Switchname": string;
+    "FreeSWITCH-IPv4": string;
+    "FreeSWITCH-IPv6": string;
+    "Event-Date-Local": Date;
+    "Event-Date-GMT": string;
+    "Event-Date-Timestamp": string;
+    "Event-Calling-File": string;
+    "Event-Calling-Function": string;
+    "Event-Calling-Line-Number": string;
+    "Event-Sequence": string;
+    "CC-Agent": string;
+    "CC-Action": string;
+    "CC-Agent-Status": string;
 }
 export interface IFsConfMemberFlags {
     can_hear: string;
