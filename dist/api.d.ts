@@ -23,10 +23,10 @@ export declare class FsApiEx {
     getQeueueMembers(queue: string): Promise<ICCMember[]>;
     getTiers(): Promise<ICCTier[]>;
     getQueues(): Promise<ICCQueue[]>;
-    addAgent(name: string, contact: string, type?: string): Promise<void>;
+    addAgent(name: string, contact: string, type?: string): Promise<string>;
     getAgents(): Promise<ICCAgent[]>;
-    updateAgent(name: string, attr: string, value: string): Promise<void>;
-    setAgentStatus(name: string, status: CCAgentStatus): Promise<void>;
+    updateAgent(name: string, attr: string, value: string): Promise<string>;
+    setAgentStatus(name: string, status: CCAgentStatus): Promise<string>;
     delTier(tier: ICCTier): Promise<void>;
     addTier(tier: ICCTier): Promise<void>;
     setTier(tier: ICCTier, param: 'level' | 'position' | 'state', value: string): Promise<void>;

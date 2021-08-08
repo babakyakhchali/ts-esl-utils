@@ -111,11 +111,12 @@ class FsApiEx {
         return this.ccListApi('callcenter_config agent list');
     }
     async updateAgent(name, attr, value) {
-        const r = await this.fsapi.executeString(`callcenter_config agent set ${name} ${attr} ${value}`);
+        const r = await this.fsapi.executeString(`callcenter_config agent set ${attr} ${name} '${value}'`);
         if (!r.trimRight().endsWith('+OK')) {
             console.error(r);
             throw "UpdateAgentError";
         }
+        return r;
     }
     async setAgentStatus(name, status) {
         return this.updateAgent(name, 'status', status);
