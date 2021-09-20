@@ -216,4 +216,7 @@ exports.EslCallEx = EslCallEx;
 var api_1 = require("./api");
 exports.FsApi = api_1.FsApi;
 exports.FsApiEx = api_1.FsApiEx;
+var cdr_1 = require("./cdr");
+exports.extractBridges = cdr_1.extractBridges;
+exports.computeDuration = cdr_1.computeDuration;
 //# sourceMappingURL=index.js.map

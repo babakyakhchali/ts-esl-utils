@@ -249,5 +249,7 @@ export class EslCallEx extends EslCall{
     }
 }
 
-export {FsApi,FsApiEx} from "./api"
-export {ICCAgent,ICCMember,ICCQueue,ICCTier,ICall,IChannel,IShowResult} from "./fstypes"
+export {FsApi,FsApiEx} from "./api";
+export {ICCAgent,ICCMember,ICCQueue,ICCTier,ICall,IChannel,IShowResult} from "./fstypes";
+
+export { extractBridges,computeDuration} from "./cdr"
