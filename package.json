@@ -13,11 +13,13 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "modesl": "^1.2.1"
+    "modesl": "^1.2.1",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "@types/node": "^10.12.21",
     "@types/dotenv": "^8.2.0",
+    "@types/node": "^10.12.21",
+    "@types/xml2js": "^0.4.9",
     "rimraf": "^2.6.3",
     "typescript": "^3.3.3"
   }

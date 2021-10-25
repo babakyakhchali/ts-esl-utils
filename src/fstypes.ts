@@ -107,7 +107,7 @@ export const CCAgentStatusData = [
     }
 ]
 
-export type CCAgentStatus = 'Logged Out'|'Available'|'Available (On Demand)'|'On Break';
+export type CCAgentStatus = 'Logged Out' | 'Available' | 'Available (On Demand)' | 'On Break';
 export interface ICCTier {
     queue: string;
     agent: string;
@@ -116,7 +116,7 @@ export interface ICCTier {
     position: string;
 }
 
-export interface ICCQueue {    
+export interface ICCQueue {
     name: string;
     strategy: string;
     moh_sound: string;
@@ -135,31 +135,31 @@ export interface ICCQueue {
     calls_abandoned: string;
     ring_progressively_delay: string;
     skip_agents_with_external_calls: string;
-    agent_no_answer_status: string;    
+    agent_no_answer_status: string;
 }
 
 export interface ICCAgent {
-  name: string;
-  instance_id: string;
-  uuid: string;
-  type: string;
-  contact: string;
-  status: string;
-  state: string;
-  max_no_answer: string;
-  wrap_up_time: string;
-  reject_delay_time: string;
-  busy_delay_time: string;
-  no_answer_delay_time: string;
-  last_bridge_start: string;
-  last_bridge_end: string;
-  last_offered_call: string;
-  last_status_change: string;
-  no_answer_count: string;
-  calls_answered: string;
-  talk_time: string;
-  ready_time: string;
-  external_calls_count: string;
+    name: string;
+    instance_id: string;
+    uuid: string;
+    type: string;
+    contact: string;
+    status: string;
+    state: string;
+    max_no_answer: string;
+    wrap_up_time: string;
+    reject_delay_time: string;
+    busy_delay_time: string;
+    no_answer_delay_time: string;
+    last_bridge_start: string;
+    last_bridge_end: string;
+    last_offered_call: string;
+    last_status_change: string;
+    no_answer_count: string;
+    calls_answered: string;
+    talk_time: string;
+    ready_time: string;
+    external_calls_count: string;
 }
 
 export interface ICCMember {
@@ -404,5 +404,77 @@ export interface IChannelData {
     Control: string;
     'Modesl-Reply-OK': string;
     'Content-Length': number;
+}
+
+export interface ISofiaStatusItem {
+    name: string;
+    type: string;
+    data: string;
+    state: string;
+}
+
+export interface ISofiaProfileStatus {
+    name: string;
+    "domain-name": string;
+    "auto-nat": string;
+    "db-name": string;
+    "pres-hosts": string;
+    dialplan: string;
+    context: string;
+    "challenge-realm": string;
+    "rtp-ip": string;
+    "sip-ip": string;
+    url: string;
+    "bind-url": string;
+    "hold-music": string;
+    "outbound-proxy": string;
+    "inbound-codecs": string;
+    "outbound-codecs": string;
+    "tel-event": string;
+    "dtmf-mode": string;
+    cng: string;
+    "session-to": string;
+    "max-dialog": string;
+    nomedia: string;
+    "late-neg": string;
+    "proxy-media": string;
+    "zrtp-passthru": string;
+    "aggressive-nat": string;
+    "calls-in": string;
+    "calls-out": string;
+    "failed-calls-in": string;
+    "failed-calls-out": string;
+    registrations: string;
+}
+
+export interface ISofiaRegistrationStatus {
+    "call-id": string;
+    user: string;
+    contact: string;
+    agent: string;
+    status: string;
+    "ping-status": string;
+    "ping-time": string;
+    host: string;
+    "network-ip": string;
+    "network-port": string;
+    "sip-auth-user": string;
+    "sip-auth-realm": string;
+    "mwi-account": string;
+}
+
+
+//result of show registrations
+export interface IRegistration {
+    reg_user:      string;
+    realm:         string;
+    token:         string;
+    url:           string;
+    expires:       string;
+    network_ip:    string;
+    network_port:  string;
+    network_proto: string;
+    hostname:      string;
+    metadata:      string;
 }
 

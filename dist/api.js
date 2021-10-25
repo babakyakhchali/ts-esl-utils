@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const xml2js_1 = require("xml2js");
 const _1 = require(".");
 const utils_1 = require("./utils");
 class FsApi {
@@ -167,6 +168,47 @@ class FsApiEx {
     async exists(uuid) {
         const r = await this.fsapi.executeString(`uuid_exists ${uuid}`);
         return r == 'true';
+    }
+    async sofiaStatus() {
+        const r = await this.fsapi.executeString('sofia xmlstatus');
+        if (r.startsWith('-ERR sofia Command not found!')) {
+            throw new Error("ModuleNotLoaded");
+        }
+        const j = await xml2js_1.parseStringPromise(r, { explicitArray: false });
+        if (j.profiles && j.profiles.profile) {
+            return j.profiles.profile;
+        }
+        return [];
+    }
+    async sofiaProfileStatus(profile) {
+        const r = await this.fsapi.executeString(`sofia xmlstatus profile ${profile}`);
+        if (r.startsWith('-ERR sofia Command not found!')) {
+            throw new Error("ModuleNotLoaded");
+        }
+        if (r.startsWith('Invalid Profile')) {
+            throw new Error("SofiaProfileNotLoaded");
+        }
+        const j = await xml2js_1.parseStringPromise(r, { explicitArray: false });
+        return j.profile["profile-info"];
+    }
+    async sofiaProfileRegStatus(profile) {
+        const r = await this.fsapi.executeString(`sofia xmlstatus profile ${profile} reg`);
+        if (r.startsWith('-ERR sofia Command not found!')) {
+            throw new Error("ModuleNotLoaded");
+        }
+        if (r.startsWith('Invalid Profile')) {
+            throw new Error("SofiaProfileNotLoaded");
+        }
+        const j = await xml2js_1.parseStringPromise(r, { explicitArray: false, trim: true });
+        if (typeof j === 'string') {
+            return [];
+        }
+        else if (j.profile.registration) {
+            return [j.profile.registration];
+        }
+        else {
+            return j.profile.registrations.registration;
+        }
     }
 }
 exports.FsApiEx = FsApiEx;

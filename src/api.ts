@@ -1,5 +1,6 @@
+import { parseStringPromise } from "xml2js";
 import { EslConnectionToFs } from ".";
-import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel } from "./fstypes";
+import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem } from "./fstypes";
 import { parseCSV } from "./utils";
 
 export class FsApi {
@@ -198,6 +199,50 @@ export class FsApiEx{
     async exists(uuid:string){
         const r = await this.fsapi.executeString(`uuid_exists ${uuid}`);
         return r == 'true';      
-    }    
+    }
+
+    async sofiaStatus():Promise<ISofiaStatusItem[]>{
+        const r = await this.fsapi.executeString('sofia xmlstatus');
+        if(r.startsWith('-ERR sofia Command not found!')){
+            throw new Error("ModuleNotLoaded");            
+        }
+        const j = await parseStringPromise(r,{explicitArray:false});
+        if(j.profiles && j.profiles.profile){
+            return j.profiles.profile;
+        }
+        return [];
+    }
+
+    async sofiaProfileStatus(profile:string):Promise<ISofiaProfileStatus>{
+        const r = await this.fsapi.executeString(`sofia xmlstatus profile ${profile}`);
+        if(r.startsWith('-ERR sofia Command not found!')){
+            throw new Error("ModuleNotLoaded");            
+        }
+        if(r.startsWith('Invalid Profile')){
+            throw new Error("SofiaProfileNotLoaded");            
+        }
+        const j = await parseStringPromise(r,{explicitArray:false});
+        
+        return j.profile["profile-info"];
+        
+    }
+
+    async sofiaProfileRegStatus(profile:string):Promise<ISofiaRegistrationStatus[]>{
+        const r = await this.fsapi.executeString(`sofia xmlstatus profile ${profile} reg`);
+        if(r.startsWith('-ERR sofia Command not found!')){
+            throw new Error("ModuleNotLoaded");            
+        }
+        if(r.startsWith('Invalid Profile')){
+            throw new Error("SofiaProfileNotLoaded");            
+        }
+        const j = await parseStringPromise(r,{explicitArray:false,trim:true});
+        if(typeof j === 'string'){
+            return [];
+        }else if(j.profile.registration){
+            return [j.profile.registration];
+        }else {
+            return j.profile.registrations.registration;
+        }
+    }
     
 }

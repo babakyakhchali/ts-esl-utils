@@ -379,3 +379,69 @@ export interface IChannelData {
     'Modesl-Reply-OK': string;
     'Content-Length': number;
 }
+export interface ISofiaStatusItem {
+    name: string;
+    type: string;
+    data: string;
+    state: string;
+}
+export interface ISofiaProfileStatus {
+    name: string;
+    "domain-name": string;
+    "auto-nat": string;
+    "db-name": string;
+    "pres-hosts": string;
+    dialplan: string;
+    context: string;
+    "challenge-realm": string;
+    "rtp-ip": string;
+    "sip-ip": string;
+    url: string;
+    "bind-url": string;
+    "hold-music": string;
+    "outbound-proxy": string;
+    "inbound-codecs": string;
+    "outbound-codecs": string;
+    "tel-event": string;
+    "dtmf-mode": string;
+    cng: string;
+    "session-to": string;
+    "max-dialog": string;
+    nomedia: string;
+    "late-neg": string;
+    "proxy-media": string;
+    "zrtp-passthru": string;
+    "aggressive-nat": string;
+    "calls-in": string;
+    "calls-out": string;
+    "failed-calls-in": string;
+    "failed-calls-out": string;
+    registrations: string;
+}
+export interface ISofiaRegistrationStatus {
+    "call-id": string;
+    user: string;
+    contact: string;
+    agent: string;
+    status: string;
+    "ping-status": string;
+    "ping-time": string;
+    host: string;
+    "network-ip": string;
+    "network-port": string;
+    "sip-auth-user": string;
+    "sip-auth-realm": string;
+    "mwi-account": string;
+}
+export interface IRegistration {
+    reg_user: string;
+    realm: string;
+    token: string;
+    url: string;
+    expires: string;
+    network_ip: string;
+    network_port: string;
+    network_proto: string;
+    hostname: string;
+    metadata: string;
+}

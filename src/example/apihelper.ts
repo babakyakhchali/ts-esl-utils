@@ -15,6 +15,9 @@ export async function runtest() {
     console.log(await apiEx.getAgents());
     console.log(await apiEx.getTiers());
     console.log(await apiEx.getQueues());
+    console.log(await apiEx.sofiaStatus());
+    console.log(await apiEx.sofiaProfileStatus('internal'));
+    console.log(await apiEx.sofiaProfileRegStatus('internal-local'));
     api.close();
     process.exit(0);
 }
