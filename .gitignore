@@ -1,3 +1,10 @@
 node_modules
 .env*
 yarn-error.log
+
+freeswitch/*
+!freeswitch/run.bat
+!freeswitch/conf
+freeswitch/conf/*
+!freeswitch/sounds
+!freeswitch/conf/freeswitch.xml
