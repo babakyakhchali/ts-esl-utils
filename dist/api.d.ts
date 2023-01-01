@@ -1,4 +1,4 @@
-import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem } from "./fstypes";
+import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem, IShowResult } from "./fstypes";
 export declare class FsApi {
     private executor;
     constructor(executeorType: 'ESL' | 'SSH' | 'CMD', conf: IApiExecutorConf);
@@ -34,6 +34,7 @@ export declare class FsApiEx {
     status(): Promise<string>;
     getChannels(): Promise<IChannel[]>;
     getCalls(): Promise<ICall[]>;
+    showJSON<T>(query: string): Promise<IShowResult<T>>;
     killCall(uuid: string): Promise<void>;
     exists(uuid: string): Promise<boolean>;
     sofiaStatus(): Promise<ISofiaStatusItem[]>;

@@ -465,6 +465,7 @@ export interface ISofiaRegistrationStatus {
 
 
 //result of show registrations
+
 export interface IRegistration {
     reg_user:      string;
     realm:         string;

@@ -159,6 +159,10 @@ class FsApiEx {
     async getCalls() {
         return this.fsapi.show('calls');
     }
+    async showJSON(query) {
+        let r = await this.fsapi.executeString('show ' + query + ' as json');
+        return JSON.parse(r);
+    }
     async killCall(uuid) {
         const r = await this.fsapi.executeString(`uuid_kill ${uuid}`);
         if (!r.toLocaleLowerCase().includes('ok')) {

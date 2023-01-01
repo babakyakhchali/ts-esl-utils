@@ -1,6 +1,6 @@
 import { parseStringPromise } from "xml2js";
 import { EslConnectionToFs } from ".";
-import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem } from "./fstypes";
+import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem,IShowResult } from "./fstypes";
 import { parseCSV } from "./utils";
 
 export class FsApi {
@@ -189,6 +189,10 @@ export class FsApiEx{
     async getCalls(){
         return this.fsapi.show<ICall>('calls');
         
+    }
+    async showJSON<T>(query:string){
+        let r = await this.fsapi.executeString('show '+query+' as json')
+        return JSON.parse(r) as Promise<IShowResult<T>>;
     }
     async killCall(uuid:string){
         const r = await this.fsapi.executeString(`uuid_kill ${uuid}`);
