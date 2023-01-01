@@ -16,7 +16,7 @@ async function runtest() {
     console.log(await apiEx.getQueues());
     console.log(await apiEx.sofiaStatus());
     console.log(await apiEx.sofiaProfileStatus('internal'));
-    //console.log(await apiEx.sofiaProfileRegStatus('internal-local'));
+    console.log(await apiEx.sofiaProfileRegStatus('internal-local'));
     console.log(await apiEx.showJSON('registrations'));
     api.close();
     process.exit(0);

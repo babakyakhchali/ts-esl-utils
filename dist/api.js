@@ -180,7 +180,12 @@ class FsApiEx {
         }
         const j = await xml2js_1.parseStringPromise(r, { explicitArray: false });
         if (j.profiles && j.profiles.profile) {
-            return j.profiles.profile;
+            if (Array.isArray(j.profiles.profile)) {
+                return j.profiles.profile;
+            }
+            else {
+                return [j.profiles.profile];
+            }
         }
         return [];
     }
