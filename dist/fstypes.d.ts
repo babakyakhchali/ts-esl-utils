@@ -445,3 +445,13 @@ export interface IRegistration {
     hostname: string;
     metadata: string;
 }
+export interface IListUsersItem {
+    userid: number;
+    context: string;
+    domain: string;
+    group: string;
+    contact: string;
+    callgroup: string;
+    effective_caller_id_name: number;
+    effective_caller_id_number: number;
+}

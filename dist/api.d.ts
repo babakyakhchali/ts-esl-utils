@@ -1,4 +1,4 @@
-import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem, IShowResult } from "./fstypes";
+import { CCAgentStatus, ICall, ICCAgent, ICCMember, ICCQueue, ICCTier, IChannel, ISofiaProfileStatus, ISofiaRegistrationStatus, ISofiaStatusItem, IShowResult, IListUsersItem } from "./fstypes";
 export declare class FsApi {
     private executor;
     constructor(executeorType: 'ESL' | 'SSH' | 'CMD', conf: IApiExecutorConf);
@@ -40,5 +40,6 @@ export declare class FsApiEx {
     sofiaStatus(): Promise<ISofiaStatusItem[]>;
     sofiaProfileStatus(profile: string): Promise<ISofiaProfileStatus>;
     sofiaProfileRegStatus(profile: string): Promise<ISofiaRegistrationStatus[]>;
+    listUsers(group?: string, domain?: string, user?: string, context?: string): Promise<IListUsersItem[]>;
 }
 export {};

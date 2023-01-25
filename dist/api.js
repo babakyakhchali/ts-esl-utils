@@ -219,6 +219,24 @@ class FsApiEx {
             return j.profile.registrations.registration;
         }
     }
+    //list_users [group <group>][domain &lt;domain>] [user <user>][context &lt;context>]
+    async listUsers(group, domain, user, context) {
+        let api = 'list_users';
+        if (group) {
+            api += ' group ' + group;
+        }
+        if (domain) {
+            api += ' domain ' + domain;
+        }
+        if (user) {
+            api += ' user ' + user;
+        }
+        if (context) {
+            api += ' context ' + context;
+        }
+        const r = await this.fsapi.executeString(api);
+        return utils_1.parseCSV(r, '|');
+    }
 }
 exports.FsApiEx = FsApiEx;
 //# sourceMappingURL=api.js.map
